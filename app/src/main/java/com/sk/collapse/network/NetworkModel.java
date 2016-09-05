@@ -1,4 +1,4 @@
-package com.sk.collapse.model;
+package com.sk.collapse.network;
 
 /**
  * Created by sk on 16-9-5.
