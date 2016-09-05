@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     >
 
     <android.support.design.widget.AppBarLayout
@@ -12,14 +13,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:clipToPadding="true"
+
         >
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/id_collapse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimary"
+            app:statusBarScrim="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
@@ -28,7 +31,6 @@
             app:collapsedTitleTextAppearance="@style/CollapseTheme"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-
             >
 
             <ImageView
@@ -38,12 +40,11 @@
                 android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
-                android:fitsSystemWindows="true"
-                />
+                android:fitsSystemWindows="true"/>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="40dp"
                 android:background="@drawable/gradient"
                 android:fitsSystemWindows="true"
                 />

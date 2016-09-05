@@ -2,10 +2,12 @@ package com.sk.collapse.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -17,6 +19,18 @@ public class DetailActivity extends BaseAppCompatActivity {
     private Toolbar mToolBar;
     private CollapsingToolbarLayout mCollapse;
     private FloatingActionButton mFloatBtn;
+    private AppBarLayout app_bar;
+    private ButtonBarLayout playButton;
+
+
+    private CollapsingToolbarLayoutState state;
+
+    private enum CollapsingToolbarLayoutState {
+        EXPANDED,
+        COLLAPSED,
+        INTERNEDIATE
+    }
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,7 +38,8 @@ public class DetailActivity extends BaseAppCompatActivity {
         setContentView(R.layout.detail_activity);
 
         mToolBar = (Toolbar) findViewById(R.id.id_toolbar);
-
+        app_bar = (AppBarLayout) findViewById(R.id.id_appbar);
+        playButton = (ButtonBarLayout) findViewById(R.id.playButton);
 
         setSupportActionBar(mToolBar);
         ActionBar ab = getSupportActionBar();
@@ -62,6 +77,41 @@ public class DetailActivity extends BaseAppCompatActivity {
                             }
                         }).show();
 
+            }
+        });
+
+
+        // appbar init
+        app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if(verticalOffset == 0) {
+                    if(state != CollapsingToolbarLayoutState.EXPANDED) {
+                        state = CollapsingToolbarLayoutState.EXPANDED;
+                        mCollapse.setTitle("Expand");
+                    }else if(Math.abs(verticalOffset) >= app_bar.getTotalScrollRange()) {
+                        if(state != CollapsingToolbarLayoutState.COLLAPSED) {
+                            mCollapse.setTitle("");
+                            playButton.setVisibility(View.VISIBLE);
+                            state = CollapsingToolbarLayoutState.COLLAPSED;
+                        }
+                    }else {
+                        if(state != CollapsingToolbarLayoutState.INTERNEDIATE) {
+                            if(state == CollapsingToolbarLayoutState.COLLAPSED) {
+                                playButton.setVisibility(View.GONE);
+                            }
+                            mCollapse.setTitle("INTERNEDIATE");
+                            state = CollapsingToolbarLayoutState.INTERNEDIATE;
+                        }
+                    }
+                }
+            }
+        });
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                app_bar.setExpanded(true);
             }
         });
     }
