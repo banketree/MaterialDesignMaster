@@ -178,7 +178,7 @@ public class Tab0Fragment extends Fragment {
                     if(recommendInfo != null && recommendInfo.getCode() == 0) {
                         mRecommendInfo = recommendInfo;
                         List<ResultInfo> rlist = recommendInfo.getResult();
-                        for(int i=0;rlist != null && i<recommendInfo.getResult().size();i++) {
+                        for(int i=0;rlist != null && i<rlist.size();i++) {
                             ResultInfo rinfo = rlist.get(i);
                             if(rinfo == null)
                                 continue;
@@ -191,9 +191,11 @@ public class Tab0Fragment extends Fragment {
                                 if(bodyInfo != null) {
                                     mBannerList.add(new BaseBanner(bodyInfo.getTitle(), bodyInfo.getCover(), bodyInfo.getParam()));
                                 }
-                            } else if(rinfo.getType().equals(RecommendInfo.RECOMMEND_TYPE_ACTIVITY)){
+                            }
+                            else if(rinfo.getType().equals(RecommendInfo.RECOMMEND_TYPE_ACTIVITY)){
                                 mList.add(rinfo);
-                            } else {
+                            }
+                            else {
                                 mList.add(rinfo);
                             }
                         }
@@ -218,7 +220,7 @@ public class Tab0Fragment extends Fragment {
 
                         } else {
 
-                            mAdapter.addSection(new RecommendContentSection(getActivity(), resultInfo, resultInfo.getType(), icons[(i++) % icons.length]));
+                            mAdapter.addSection(new RecommendContentSection(getActivity(), resultInfo, resultInfo.getType(), icons[i % icons.length]));
                         }
                     }
 
