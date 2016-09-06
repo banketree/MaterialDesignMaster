@@ -34,17 +34,22 @@ public class NetworkClient {
         return mInstance;
     }
 
+    public static NetworkClient getmInstance() {
+        return mInstance;
+    }
+
     public static NetworkClient getInstance(Context context) {
         if(mInstance == null) {
             mInstance = newInstance(context);
         }
-
         return mInstance;
     }
 
-    public void get(String url, Map<String, String> params, onHttpResponse onRes) {
 
-        mQueue.add(new VolleyRequest(Request.Method.GET, url, params, onRes));
+    public void get(String url, onHttpResponse onRes) {
+
+        Map<String, String> map = null;
+        mQueue.add(new VolleyRequest(Request.Method.GET, url, map, onRes));
     }
 
     public void post(String baseurl, Map<String, String> params, onHttpResponse onRes) {

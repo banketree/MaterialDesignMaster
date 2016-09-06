@@ -6,7 +6,7 @@ package com.sk.collapse.network;
 public class NetworkModel {
 
     //"x/show/old?platform=android&device=&build=412001"
-    public static final String BASE_URL = "http://app.bilibili.com/";
+    public static final String BASE_URL = "http://app.bilibili.com/x/show/old?platform=android&device=&build=412001";
 
 
 

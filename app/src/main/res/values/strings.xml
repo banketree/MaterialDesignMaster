@@ -29,4 +29,14 @@
     <string name="detail_msg4">A few days before his death, Tyler beckoned me over to his hospital bed and whispered, “I might die soon. I’m not scared. When I die, please dress me in red. Mom promised she’s coming to heaven, too. I’ll be playing when she gets there, and I want to make sure she can find me.</string>
 
     <string name="start_now">Now Play</string>
+    <string name="network_error">Network error!</string>
+    <string name="rank">Ranking</string>
+    <string name="home_tab_more">More</string>
+    <string name="look_more">View More</string>
+    <string name="change_recommend">Recommend Others</string>
+    <string name="cur_lives_num">Current %1$s lives</string>
+    <string name="format_new_msg">%1$s 条新动态，点这里刷新</string>
+    <string name="topic">话题</string>
+    <string name="goto_look">进去看看</string>
+
 </resources>

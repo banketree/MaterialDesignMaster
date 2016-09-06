@@ -5,6 +5,7 @@
     <color name="colorAccent">#99f0486c</color> <!-- #99f0486c -->
 
     <color name="colorWhite">#FFFFFFFF</color>
-
+    <color name="font_normal">#333</color>
+    <color name="black_80">#808080</color>
 
 </resources>
