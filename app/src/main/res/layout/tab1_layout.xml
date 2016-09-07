@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -12,14 +13,15 @@
     <Button
         android:id="@+id/btn_tint"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="45dp"
         android:text="@string/to_tint_activity"
         android:background="@drawable/btn_more_white"/>
 
     <Button
         android:id="@+id/btn_detail"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
         android:text="@string/to_detail_activity"
         android:background="@drawable/btn_more_white"/>
 
