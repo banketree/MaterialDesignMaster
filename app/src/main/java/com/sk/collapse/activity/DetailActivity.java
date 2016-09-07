@@ -1,5 +1,6 @@
 package com.sk.collapse.activity;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -22,14 +23,6 @@ public class DetailActivity extends BaseAppCompatActivity {
     private AppBarLayout app_bar;
     private ButtonBarLayout playButton;
 
-
-    private CollapsingToolbarLayoutState state;
-
-    private enum CollapsingToolbarLayoutState {
-        EXPANDED,
-        COLLAPSED,
-        INTERNEDIATE
-    }
 
 
     @Override
@@ -64,7 +57,7 @@ public class DetailActivity extends BaseAppCompatActivity {
 
         //floating button
         mFloatBtn = (FloatingActionButton) findViewById(R.id.id_floatbtn);
-
+        mFloatBtn.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorPrimary)));
         mFloatBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,26 +78,7 @@ public class DetailActivity extends BaseAppCompatActivity {
         app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if(verticalOffset == 0) {
-                    if(state != CollapsingToolbarLayoutState.EXPANDED) {
-                        state = CollapsingToolbarLayoutState.EXPANDED;
-                        mCollapse.setTitle("Expand");
-                    }else if(Math.abs(verticalOffset) >= app_bar.getTotalScrollRange()) {
-                        if(state != CollapsingToolbarLayoutState.COLLAPSED) {
-                            mCollapse.setTitle("");
-                            playButton.setVisibility(View.VISIBLE);
-                            state = CollapsingToolbarLayoutState.COLLAPSED;
-                        }
-                    }else {
-                        if(state != CollapsingToolbarLayoutState.INTERNEDIATE) {
-                            if(state == CollapsingToolbarLayoutState.COLLAPSED) {
-                                playButton.setVisibility(View.GONE);
-                            }
-                            mCollapse.setTitle("INTERNEDIATE");
-                            state = CollapsingToolbarLayoutState.INTERNEDIATE;
-                        }
-                    }
-                }
+
             }
         });
 

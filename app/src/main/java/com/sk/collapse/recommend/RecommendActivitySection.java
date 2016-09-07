@@ -1,4 +1,4 @@
-package com.sk.collapse.model;
+package com.sk.collapse.recommend;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.sk.collapse.activity.R;
+import com.sk.collapse.model.BodyInfo;
+import com.sk.collapse.model.ResultInfo;
 import com.sk.collapse.widget.StateLessSection;
 
 import java.util.ArrayList;

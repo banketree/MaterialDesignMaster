@@ -12,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private int mCurrentTabIndex = 0;
     private Fragment []mFragments;
+    private ImageView mHead;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +37,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
 
 
-
-
-        //mToolBar.setLogo(R.drawable.ic_launcher);
+        mToolBar.setLogo(R.drawable.ic_bili_logo_white);
         setSupportActionBar(mToolBar);
         ActionBar ab = getSupportActionBar();
         if(ab != null) {
             ab.setDisplayHomeAsUpEnabled(true);
             ab.setDisplayUseLogoEnabled(true);
-            ab.setDisplayShowTitleEnabled(true);
+            ab.setDisplayShowTitleEnabled(false);
         }
 
         mDrawToggle = new ActionBarDrawerToggle(this, mDrawlayout, mToolBar, R.string.app_name, R.string.app_name);
@@ -165,4 +166,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
+    public void setHeadImageVisible(boolean isShow) {
+
+        mHead.setVisibility( isShow ? View.VISIBLE : View.GONE);
+
+    }
 }

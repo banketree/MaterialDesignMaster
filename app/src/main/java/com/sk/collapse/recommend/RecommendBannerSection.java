@@ -1,10 +1,11 @@
-package com.sk.collapse.model;
+package com.sk.collapse.recommend;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.sk.collapse.activity.R;
 import com.sk.collapse.customview.BannerView;
+import com.sk.collapse.model.BaseBanner;
 import com.sk.collapse.widget.StateLessSection;
 
 import java.util.List;

@@ -36,10 +36,20 @@ public class Tab1Fragment extends Fragment {
         View root = (View)inflater.inflate(R.layout.tab1_layout, container, false);
 
         Button detail = (Button) root.findViewById(R.id.btn_detail);
+        detail.setText(R.string.to_detail_activity);
         detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), DetailActivity.class));
+            }
+        });
+
+        Button tint = (Button) root.findViewById(R.id.btn_tint);
+        tint.setText(R.string.to_tint_activity);
+        tint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), TintActivity.class));
             }
         });
         return root;

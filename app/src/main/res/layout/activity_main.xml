@@ -24,6 +24,7 @@
             app:elevation="0dp"
             >
 
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/id_toolbar"
                 android:layout_width="match_parent"
@@ -35,8 +36,6 @@
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 />
-
-
 
 
         </android.support.design.widget.AppBarLayout>
