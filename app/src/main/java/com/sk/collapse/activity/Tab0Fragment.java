@@ -1,7 +1,9 @@
 package com.sk.collapse.activity;
 
 
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -27,6 +29,7 @@ import com.sk.collapse.model.ResultInfo;
 import com.sk.collapse.network.NetworkClient;
 import com.sk.collapse.network.NetworkModel;
 import com.sk.collapse.network.onHttpResponse;
+import com.sk.collapse.utils.DensityUtils;
 import com.sk.collapse.widget.SectionRecyclerViewAdapter;
 
 import java.lang.reflect.Type;
@@ -128,6 +131,10 @@ public class Tab0Fragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new SectionRecyclerViewAdapter(getActivity());
         mRecyclerView.setAdapter(mAdapter);
+
+        SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration(getActivity(),
+                getResources().getDimension(R.dimen.recommend_gridview_item_margin_right));
+        mRecyclerView.addItemDecoration(spaceItemDecoration);
 
         return root;
     }
@@ -231,4 +238,35 @@ public class Tab0Fragment extends Fragment {
             }
         });
     }
+
+    private class SpaceItemDecoration extends RecyclerView.ItemDecoration{
+
+        private int mSpace;
+
+        public SpaceItemDecoration(Context context, float dp) {
+            this.mSpace = DensityUtils.dip2px(context, dp);
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            //super.getItemOffsets(outRect, view, parent, state);
+
+            int itemCount = mAdapter.getItemCount();
+            int pos = parent.getChildAdapterPosition(view);
+            //RecyclerView.Adapter<RecyclerView.ViewHolder> adapter = parent.getAdapter();
+            SectionRecyclerViewAdapter adapter = mAdapter;
+            int type = adapter.getItemViewType(pos);
+
+            outRect.left = 0;
+            outRect.top = 0;
+            outRect.bottom = 0;
+            outRect.right = 20;
+            if(type == SectionRecyclerViewAdapter.VIEW_TYPE_ITEM) {
+
+            }else {
+                outRect.right = 0;
+            }
+        }
+    }
+
 }

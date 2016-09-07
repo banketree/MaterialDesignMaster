@@ -31,7 +31,10 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:textColor="@color/font_normal"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:minLines="2"/>
         </LinearLayout>
 
     </android.support.v7.widget.CardView>

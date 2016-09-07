@@ -30,11 +30,11 @@
 
     <string name="start_now">Now Play</string>
     <string name="network_error">Network error!</string>
-    <string name="rank">Ranking</string>
-    <string name="home_tab_more">More</string>
-    <string name="look_more">View More</string>
-    <string name="change_recommend">Recommend Others</string>
-    <string name="cur_lives_num">Current %1$s lives</string>
+    <string name="rank">排行榜</string>
+    <string name="home_tab_more">更多</string>
+    <string name="look_more">查看更多</string>
+    <string name="change_recommend">换一波推荐</string>
+    <string name="cur_lives_num">当前 %1$s 个直播</string>
     <string name="format_new_msg">%1$s 条新动态，点这里刷新</string>
     <string name="topic">话题</string>
     <string name="goto_look">进去看看</string>
