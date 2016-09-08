@@ -110,12 +110,12 @@ public class SectionRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVie
             if(position >= curPos && position < (curPos + sectionTotal)) {
                 if(section.isHaveHead() && position == curPos) {
 
-                    getSectionForPosition(position).onBindHeaderViewHolder(holder);
+                    getSectionForPosition(position).onBindHeaderViewHolder(holder, position);
                     return;
                 }
 
                 if(section.isHaveFoot() && position == curPos + sectionTotal - 1) {
-                    getSectionForPosition(position).onBindFooterViewHolder(holder);
+                    getSectionForPosition(position).onBindFooterViewHolder(holder, position);
                     return;
                 }
 

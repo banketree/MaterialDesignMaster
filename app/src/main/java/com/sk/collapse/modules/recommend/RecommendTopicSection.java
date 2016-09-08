@@ -1,4 +1,4 @@
-package com.sk.collapse.recommend;
+package com.sk.collapse.modules.recommend;
 
 import android.content.Context;
 import android.net.Uri;
@@ -62,8 +62,7 @@ public class RecommendTopicSection extends StateLessSection {
 
 
     @Override
-    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
-        super.onBindHeaderViewHolder(holder);
+    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
 
         HeadViewHolder headViewHolder = (HeadViewHolder) holder;
         BodyInfo bodyInfo = (BodyInfo) getItem(0);

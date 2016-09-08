@@ -1,4 +1,4 @@
-package com.sk.collapse.recommend;
+package com.sk.collapse.modules.recommend;
 
 import android.content.Context;
 import android.net.Uri;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.sk.collapse.activity.R;
+import com.sk.collapse.customview.RotateImageView;
 import com.sk.collapse.model.BodyInfo;
 import com.sk.collapse.model.RecommendInfo;
 import com.sk.collapse.model.ResultInfo;
@@ -30,14 +31,20 @@ public class RecommendContentSection extends StateLessSection {
     private Context mContext;
     private int mTypeIcon;
 
+    private RecyclerView.Adapter<RecyclerView.ViewHolder> mAdapter;
 
-    public RecommendContentSection(Context context, ResultInfo resultInfo, String type, int iconid) {
+
+
+
+    public RecommendContentSection(Context context, RecyclerView.Adapter<RecyclerView.ViewHolder> adapter, ResultInfo resultInfo, String type, int iconid) {
         super(R.layout.recommend_content_head_layout, R.layout.recommend_content_item_layout, R.layout.recommend_content_foot_layout);
 
         this.mRecommendType = type;
         this.mRecommenResultInfo = resultInfo;
         this.mContext = context;
         this.mTypeIcon = iconid;
+
+        this.mAdapter = adapter;
     }
 
 
@@ -97,8 +104,7 @@ public class RecommendContentSection extends StateLessSection {
 
 
     @Override
-    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
-        super.onBindHeaderViewHolder(holder);
+    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
 
         HeadViewHolder headViewHolder = (HeadViewHolder)holder;
         headViewHolder.item_type_img.setImageResource(mTypeIcon);
@@ -141,9 +147,10 @@ public class RecommendContentSection extends StateLessSection {
     }
 
     @Override
-    public void onBindFooterViewHolder(RecyclerView.ViewHolder holder) {
-        super.onBindFooterViewHolder(holder);
-        FootViewHolder footViewHolder = (FootViewHolder) holder;
+    public void onBindFooterViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
+
+        final FootViewHolder footViewHolder = (FootViewHolder) holder;
+        final int pos = recylepos;
 
         String rtype = mRecommenResultInfo.getType();
         if(TextUtils.isEmpty(rtype)) {
@@ -153,6 +160,13 @@ public class RecommendContentSection extends StateLessSection {
             footViewHolder.item_refresh_layout.setVisibility(View.GONE);
             footViewHolder.item_recommend_refresh_layout.setVisibility(View.VISIBLE);
             footViewHolder.item_bangumi_layout.setVisibility(View.GONE);
+
+            footViewHolder.item_recommend_refresh_layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    footViewHolder.item_recommend_refresh.startAnim();
+                }
+            });
         }else if(RecommendInfo.RECOMMEND_TYPE_BANGUMI_2.equals(rtype)) {
             footViewHolder.item_btn_more.setVisibility(View.GONE);
             footViewHolder.item_refresh_layout.setVisibility(View.GONE);
@@ -165,6 +179,12 @@ public class RecommendContentSection extends StateLessSection {
             footViewHolder.item_recommend_refresh_layout.setVisibility(View.GONE);
             footViewHolder.item_bangumi_layout.setVisibility(View.GONE);
 
+            footViewHolder.item_btn_refresh.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    footViewHolder.item_btn_refresh.startAnim();
+                }
+            });
         }
     }
 
@@ -207,6 +227,9 @@ public class RecommendContentSection extends StateLessSection {
         private View item_refresh_layout, item_recommend_refresh_layout, item_bangumi_layout;
         private TextView item_dynamic;
 
+        private RotateImageView item_recommend_refresh, item_btn_refresh;
+
+
         public FootViewHolder(View itemView) {
             super(itemView);
 
@@ -216,6 +239,8 @@ public class RecommendContentSection extends StateLessSection {
             item_bangumi_layout = (View) itemView.findViewById(R.id.item_bangumi_layout);
             item_dynamic = (TextView) itemView.findViewById(R.id.item_dynamic);
 
+            item_recommend_refresh = (RotateImageView) itemView.findViewById(R.id.item_recommend_refresh);
+            item_btn_refresh = (RotateImageView) itemView.findViewById(R.id.item_btn_refresh);
         }
     }
 

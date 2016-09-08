@@ -66,10 +66,10 @@ public abstract class Section {
         this.mItemResourceID = mItemResourceID;
     }
 
-    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
+    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
 
     }
-    public void onBindFooterViewHolder(RecyclerView.ViewHolder holder) {
+    public void onBindFooterViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
 
     }
     public abstract void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position);

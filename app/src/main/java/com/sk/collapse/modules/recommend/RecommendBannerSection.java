@@ -1,4 +1,4 @@
-package com.sk.collapse.recommend;
+package com.sk.collapse.modules.recommend;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -44,7 +44,7 @@ public class RecommendBannerSection extends StateLessSection {
 
 
     @Override
-    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
+    public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder, int recylepos) {
         BannerViewHolder bannerViewHolder = (BannerViewHolder)holder;
         bannerViewHolder.mBannerView.delayTime(5).build(mBanners);
     }

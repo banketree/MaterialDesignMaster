@@ -20,11 +20,11 @@ import android.view.ViewGroup;
 import com.google.gson.Gson;
 import com.sk.collapse.model.BaseBanner;
 import com.sk.collapse.model.BodyInfo;
-import com.sk.collapse.recommend.RecommendActivitySection;
-import com.sk.collapse.recommend.RecommendBannerSection;
-import com.sk.collapse.recommend.RecommendContentSection;
+import com.sk.collapse.modules.recommend.RecommendActivitySection;
+import com.sk.collapse.modules.recommend.RecommendBannerSection;
+import com.sk.collapse.modules.recommend.RecommendContentSection;
 import com.sk.collapse.model.RecommendInfo;
-import com.sk.collapse.recommend.RecommendTopicSection;
+import com.sk.collapse.modules.recommend.RecommendTopicSection;
 import com.sk.collapse.model.ResultInfo;
 import com.sk.collapse.network.NetworkClient;
 import com.sk.collapse.network.NetworkModel;
@@ -227,7 +227,7 @@ public class Tab0Fragment extends Fragment {
 
                         } else {
 
-                            mAdapter.addSection(new RecommendContentSection(getActivity(), resultInfo, resultInfo.getType(), icons[i % icons.length]));
+                            mAdapter.addSection(new RecommendContentSection(getActivity(), mAdapter, resultInfo, resultInfo.getType(), icons[i % icons.length]));
                         }
                     }
 
