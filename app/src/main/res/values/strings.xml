@@ -32,7 +32,7 @@
     <string name="network_error">Network error!</string>
     <string name="to_tint_activity">To Tint Activity</string>
     <string name="to_detail_activity">To Detail Activity</string>
-
+    <string name="to_bottom_activity">To BottomLayout Activity</string>
 
 
     <!-- recommend -->

@@ -24,6 +24,7 @@
             android:layout_height="206dp"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimary"
+            app:statusBarScrim="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:expandedTitleMarginStart="48dp"
             app:expandedTitleMarginEnd="64dp"
@@ -47,10 +48,10 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="24dp"
+                android:layout_height="40dp"
                 android:background="@drawable/gradient"
                 android:fitsSystemWindows="true"
-                android:visibility="gone"
+                android:visibility="visible"
                 />
 
             <!--视频及弹幕控件-->

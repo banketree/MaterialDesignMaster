@@ -52,6 +52,15 @@ public class Tab1Fragment extends Fragment {
                 startActivity(new Intent(getActivity(), TintActivity.class));
             }
         });
+
+        Button bottom = (Button) root.findViewById(R.id.btn_bottom);
+        bottom.setText(R.string.to_bottom_activity);
+        bottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), DesignBottomActivity.class));
+            }
+        });
         return root;
     }
 }

@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.sk.collapse.activity.R;
 import com.sk.collapse.model.BodyInfo;
 import com.sk.collapse.model.ResultInfo;
@@ -173,6 +174,7 @@ public class RecommendActivitySection extends StateLessSection {
             Glide.with(this.context).load(Uri.parse(bodyInfo.getCover()))
                     .placeholder(R.drawable.bili_default_image_tv)
                     .centerCrop()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.topic_image);
 
         }

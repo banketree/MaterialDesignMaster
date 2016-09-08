@@ -1,6 +1,7 @@
 package com.sk.collapse.activity;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.sk.collapse.utils.DensityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,7 +101,9 @@ public class DesignBottomActivity extends BaseAppCompatActivity {
 
         //recyclerview init
         GridLayoutManager gm = new GridLayoutManager(this, 2);
+        SpaceItemDecoration sd = new SpaceItemDecoration(this, 20);
         mRecyclerView.setLayoutManager(gm);
+        mRecyclerView.addItemDecoration(sd);
         mList = new ArrayList<>();
         for(int i=0;i<15;i++) {
             mList.add(new String(imgs[i%imgs.length]));
@@ -163,6 +167,43 @@ public class DesignBottomActivity extends BaseAppCompatActivity {
         @Override
         public int getItemCount() {
             return mList.size();
+        }
+    }
+
+
+
+    private class SpaceItemDecoration extends RecyclerView.ItemDecoration{
+
+        private int mSpace;
+
+        public SpaceItemDecoration(Context context, float dp) {
+            this.mSpace = DensityUtils.dip2px(context, dp);
+        }
+
+        @Override
+        public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            //super.getItemOffsets(outRect, view, parent, state);
+
+            int itemCount = mAdapter.getItemCount();
+            int pos = parent.getChildAdapterPosition(view);
+
+            int ys = pos % 2;
+            if(ys == 0) {
+                outRect.left = 10;
+                outRect.right = 5;
+
+            }else {
+                outRect.left = 5;
+                outRect.right = 10;
+            }
+
+            if(pos <= 1) {
+                outRect.top = 10;
+                outRect.bottom = 5;
+            }else {
+                outRect.top = 5;
+                outRect.bottom = 5;
+            }
         }
     }
 }

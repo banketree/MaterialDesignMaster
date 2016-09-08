@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.sk.collapse.activity.R;
 import com.sk.collapse.model.BodyInfo;
 import com.sk.collapse.model.RecommendInfo;
@@ -70,6 +71,7 @@ public class RecommendContentSection extends StateLessSection {
         Glide.with(mContext).load(Uri.parse(bodyInfo.getCover()))
                 .centerCrop()
                 .placeholder(R.drawable.bili_default_image_tv)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(itemViewHolder.video_preview);
 
         if(!TextUtils.isEmpty(bodyInfo.getTitle()))

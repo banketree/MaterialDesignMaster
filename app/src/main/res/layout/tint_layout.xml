@@ -26,6 +26,7 @@
                 android:fitsSystemWindows="true"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:contentScrim="?attr/colorPrimary"
+                app:statusBarScrim="@android:color/transparent"
                 app:expandedTitleTextAppearance="@style/CollapsingToolbarTitleStyle.About"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 >

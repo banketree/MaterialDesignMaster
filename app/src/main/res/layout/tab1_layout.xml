@@ -26,6 +26,13 @@
         android:background="@drawable/btn_more_white"/>
 
 
+    <Button
+        android:id="@+id/btn_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/to_bottom_activity"
+        android:background="@drawable/btn_more_white"/>
 
 
 </LinearLayout>
