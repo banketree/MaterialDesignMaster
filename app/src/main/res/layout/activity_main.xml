@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/id_drawlayout"
     android:fitsSystemWindows="true"
+    android:background="@color/colorWhite"
     >
 
     <android.support.design.widget.CoordinatorLayout

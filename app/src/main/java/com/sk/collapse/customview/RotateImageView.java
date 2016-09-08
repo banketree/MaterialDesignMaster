@@ -44,6 +44,7 @@ public class RotateImageView extends ImageView {
             this.startAnimation(ra);
 
             isAnimStarting = true;
+
         }
 
     }

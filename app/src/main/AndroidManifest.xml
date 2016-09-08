@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sk.collapse.activity">
 
-    <uses-sdk android:minSdkVersion="19"
-        android:targetSdkVersion="24"/>
+    <uses-sdk android:minSdkVersion="15"
+        android:targetSdkVersion="23"
+        />
 
     <supports-screens
         android:anyDensity="true"
@@ -26,7 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon, android:theme, android:label">
-        <activity android:name=".MainActivity"
+        <activity android:name=".SplashActivity"
+            android:theme="@style/ColorTranslucentTheme"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,6 +36,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity android:name=".MainActivity" />
 
         <activity android:name=".DetailActivity" android:theme="@style/ColorTranslucentTheme"/>
         <activity android:name=".TintActivity" android:theme="@style/ColorTranslucentTheme" />
