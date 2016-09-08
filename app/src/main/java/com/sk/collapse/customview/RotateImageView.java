@@ -2,6 +2,7 @@ package com.sk.collapse.customview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -54,5 +55,15 @@ public class RotateImageView extends ImageView {
         isAnimStarting = false;
     }
 
+    @Override
+    protected void onWindowVisibilityChanged(int visibility) {
+        super.onWindowVisibilityChanged(visibility);
 
+        if(visibility == View.VISIBLE) {
+            if(isAnimStarting) {
+                isAnimStarting = false;
+                startAnim();
+            }
+        }
+    }
 }
