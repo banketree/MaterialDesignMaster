@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+
+import tyrantgit.explosionfield.ExplosionField;
 
 /**
  * Created by sk on 16-9-2.
@@ -15,7 +18,10 @@ import android.widget.Button;
 public class Tab1Fragment extends Fragment {
 
 
+    private ExplosionField mExplosionFiled = null;
+
     public Tab1Fragment() {
+
 
     }
     public static Tab1Fragment newInstance() {
@@ -61,6 +67,24 @@ public class Tab1Fragment extends Fragment {
                 startActivity(new Intent(getActivity(), DesignBottomActivity.class));
             }
         });
+
+
+        mExplosionFiled = ExplosionField.attach2Window(getActivity());
+        final ImageView iv = (ImageView) root.findViewById(R.id.iv_explosionfield);
+        iv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mExplosionFiled.explode(v);
+
+//                Drawable d = iv.getDrawable();
+//                BitmapDrawable bd = (BitmapDrawable)d;
+//                Bitmap bp = bd.getBitmap();
+//                Rect ft = new Rect(iv.getLeft(), iv.getTop(), iv.getRight(), iv.getBottom());
+//                mExplosionFiled.explode(bp, ft, 100, 2000);
+            }
+        });
+
         return root;
     }
+
 }
