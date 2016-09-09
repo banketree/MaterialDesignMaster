@@ -43,6 +43,7 @@
         <activity android:name=".DetailActivity" android:theme="@style/ColorTranslucentTheme"/>
         <activity android:name=".TintActivity" android:theme="@style/ColorTranslucentTheme" />
         <activity android:name=".DesignBottomActivity" android:theme="@style/ColorTranslucentTheme" />
+        <activity android:name=".BazierActivity" />
 
     </application>
 

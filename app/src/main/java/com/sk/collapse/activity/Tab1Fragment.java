@@ -64,7 +64,7 @@ public class Tab1Fragment extends Fragment {
         bottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), DesignBottomActivity.class));
+                startActivity(new Intent(getActivity(), BazierActivity.class));
             }
         });
 

@@ -42,5 +42,15 @@
         android:id="@+id/iv_explosionfield"
         android:src="@drawable/ic_launcher"
         android:layout_marginTop="20dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <com.sk.collapse.customview.BazierSpringView
+        android:id="@+id/id_bannerspringview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center">
+
+    </com.sk.collapse.customview.BazierSpringView>
 </LinearLayout>
