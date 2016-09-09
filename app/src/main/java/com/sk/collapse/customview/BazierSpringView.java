@@ -97,8 +97,8 @@ public class BazierSpringView extends FrameLayout {
 //            mStartRadius = mTxtTextView.getWidth();
 //        }
 
-        mTxtTextView.setX(startX - mTxtTextView.getWidth());
-        mTxtTextView.setY(startY - mTxtTextView.getHeight());
+        mTxtTextView.setX(startX - mTxtTextView.getWidth()/2);
+        mTxtTextView.setY(startY - mTxtTextView.getHeight()/2);
         super.onLayout(changed, left, top, right, bottom);
     }
 
@@ -137,8 +137,8 @@ public class BazierSpringView extends FrameLayout {
             }
         }else if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL){
             isTouch = false;
-            mTxtTextView.setX(startX - mTxtTextView.getWidth());
-            mTxtTextView.setY(startY - mTxtTextView.getHeight());
+            mTxtTextView.setX(startX - mTxtTextView.getWidth()/2);
+            mTxtTextView.setY(startY - mTxtTextView.getHeight()/2);
         }
 
         invalidate();
@@ -189,7 +189,7 @@ public class BazierSpringView extends FrameLayout {
         mPath.quadTo(mAuthorX, mAuthorY, x4, y4);
         mPath.lineTo(x1, y1);
 
-        mTxtTextView.setX(endX - mTxtTextView.getWidth());
-        mTxtTextView.setY(endY - mTxtTextView.getHeight());
+        mTxtTextView.setX(endX - mTxtTextView.getWidth()/2);
+        mTxtTextView.setY(endY - mTxtTextView.getHeight()/2);
     }
 }
