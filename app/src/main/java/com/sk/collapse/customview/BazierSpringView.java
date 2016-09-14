@@ -29,10 +29,10 @@ public class BazierSpringView extends FrameLayout {
     private Paint mPaint;
     private Path mPath;
 
-    private float mAuthorX, mAuthorY;
-    private float startX, startY;
+    private float mAuthorX=0, mAuthorY=0;
+    private float startX=0, startY=0;
 
-    private float endX, endY;
+    private float endX=0, endY=0;
 
     private float mStartRadius, mEndRadius;
 
@@ -40,6 +40,7 @@ public class BazierSpringView extends FrameLayout {
     private boolean isExploed;
 
     private TextView mTxtTextView;
+    private BazierSpringView mSelf;
 
     private ExplosionField mExploField;
 
@@ -63,14 +64,14 @@ public class BazierSpringView extends FrameLayout {
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.RED);
         mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-        mPaint.setStrokeWidth(1f);
+        mPaint.setStrokeWidth(2f);
 
         mPath = new Path();
 
+        mStartRadius = mEndRadius = DEFAULT_RADIUS;
 
-
-        mTxtTextView = (TextView)new TextView(context);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(DEFAULT_RADIUS, DEFAULT_RADIUS);
+        mTxtTextView = (TextView)new TextView(getContext());
+        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         mTxtTextView.setLayoutParams(lp);
         mTxtTextView.setGravity(Gravity.CENTER);
         mTxtTextView.setTextSize(13);
@@ -78,7 +79,9 @@ public class BazierSpringView extends FrameLayout {
         mTxtTextView.setText("12");
         mTxtTextView.setBackgroundResource(R.drawable.bazierspring_bg_selector);
 
-        this.removeAllViews();
+        mSelf = this;
+
+        //this.removeAllViews();
         this.addView(mTxtTextView);
 
 
@@ -97,8 +100,8 @@ public class BazierSpringView extends FrameLayout {
 //            mStartRadius = mTxtTextView.getWidth();
 //        }
 
-        mTxtTextView.setX(startX - mTxtTextView.getWidth()/2);
-        mTxtTextView.setY(startY - mTxtTextView.getHeight()/2);
+        mSelf.setX(startX);
+        mSelf.setY(startY);
         super.onLayout(changed, left, top, right, bottom);
     }
 
@@ -107,17 +110,6 @@ public class BazierSpringView extends FrameLayout {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    @Override
-    protected void onDraw(Canvas canvas) {
-
-
-        calculatePosition();
-        canvas.drawPath(mPath, mPaint);
-        canvas.drawCircle(startX, startY, mStartRadius, mPaint);
-        canvas.drawCircle(endX, endY, mEndRadius, mPaint);
-
-        super.onDraw(canvas);
-    }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -126,8 +118,8 @@ public class BazierSpringView extends FrameLayout {
         if(event.getAction() == MotionEvent.ACTION_DOWN) {
             Rect rect = new Rect();
             int[] location = new int[2];
-            mTxtTextView.getDrawingRect(rect);
-            mTxtTextView.getLocationOnScreen(location);
+            mSelf.getDrawingRect(rect);
+            mSelf.getLocationOnScreen(location);
             rect.left = location[0];
             rect.top = location[1];
             rect.right = rect.right + location[0];
@@ -137,8 +129,8 @@ public class BazierSpringView extends FrameLayout {
             }
         }else if(event.getAction() == MotionEvent.ACTION_UP || event.getAction() == MotionEvent.ACTION_CANCEL){
             isTouch = false;
-            mTxtTextView.setX(startX - mTxtTextView.getWidth()/2);
-            mTxtTextView.setY(startY - mTxtTextView.getHeight()/2);
+            mSelf.setX(startX);
+            mSelf.setY(startY);
         }
 
         invalidate();
@@ -160,7 +152,7 @@ public class BazierSpringView extends FrameLayout {
             //to explore
             isExploed = true;
             //mExploField.explode(mTxtTextView);
-            return;
+            //return;
         }
 
 
@@ -189,7 +181,29 @@ public class BazierSpringView extends FrameLayout {
         mPath.quadTo(mAuthorX, mAuthorY, x4, y4);
         mPath.lineTo(x1, y1);
 
-        mTxtTextView.setX(endX - mTxtTextView.getWidth()/2);
-        mTxtTextView.setY(endY - mTxtTextView.getHeight()/2);
+        mSelf.setX(endX);
+        mSelf.setY(endY);
     }
+
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+
+        if(isExploed) {
+
+        } else {
+            calculatePosition();
+            canvas.drawPath(mPath, mPaint);
+
+            canvas.save();
+            canvas.translate(startX, startY);
+            canvas.drawCircle(startX, startY, mStartRadius, mPaint);
+            canvas.restore();
+            canvas.drawCircle(endX, endY, mEndRadius, mPaint);
+        }
+
+        super.onDraw(canvas);
+
+    }
+
 }
