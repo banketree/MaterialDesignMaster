@@ -4,7 +4,7 @@ Test android metro design UI control of CoordinatorLayout, AppBarLayout, Collaps
 
 演示截图如下：
 
-#![Alt text](https://github.com/sk569437/MaterialDesignMaster/master/ScreenShot/1.png)
+#![Alt text](https://github.com/sk569437/MaterialDesignMaster/master/ScreenShot/1.png )
 #![Alt text](https://github.com/sk569437/MaterialDesignMaster/master/ScreenShot/4.png)
 ![Alt text](https://github.com/sk569437/MaterialDesignMaster/ScreenShot/3.png)
 #![Alt text](https://github.com/sk569437/MaterialDesignMaster/ScreenShot/2.png)
