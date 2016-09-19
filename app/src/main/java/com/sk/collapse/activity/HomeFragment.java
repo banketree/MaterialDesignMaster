@@ -60,23 +60,6 @@ public class HomeFragment extends Fragment {
         mViewPager.setAdapter(mAdapter);
 
         mTablayout.setupWithViewPager(mViewPager);
-        mTablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int i = tab.getPosition();
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
         return root;
 
