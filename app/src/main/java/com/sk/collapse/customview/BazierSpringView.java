@@ -29,10 +29,10 @@ public class BazierSpringView extends FrameLayout {
     private Paint mPaint;
     private Path mPath;
 
-    private float mAuthorX=0, mAuthorY=0;
-    private float startX=0, startY=0;
+    private float mAuthorX=100, mAuthorY=0;
+    private float startX=100, startY=0;
 
-    private float endX=0, endY=0;
+    private float endX=100, endY=0;
 
     private float mStartRadius, mEndRadius;
 

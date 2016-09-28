@@ -4,5 +4,6 @@
         <item>@string/tab_first</item>
         <item>@string/tab_second</item>
         <item>@string/tab_third</item>
+        <item>@string/tab_four</item>
     </string-array>
 </resources>

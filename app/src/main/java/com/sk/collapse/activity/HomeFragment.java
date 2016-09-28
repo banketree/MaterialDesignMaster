@@ -55,6 +55,7 @@ public class HomeFragment extends Fragment {
         mList.add(Tab0Fragment.newInstance());
         mList.add(Tab1Fragment.newInstance());
         mList.add(Tab2Fragment.newInstance());
+        mList.add(Tab3Fragment.newInstance());
 
         mAdapter = new MyFragAdapter(getFragmentManager());
         mViewPager.setAdapter(mAdapter);
