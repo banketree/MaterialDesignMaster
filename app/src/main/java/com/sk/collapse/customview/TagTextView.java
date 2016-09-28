@@ -38,6 +38,8 @@ public class TagTextView extends TextView {
             mergeDrawableStates(drawableState, sel_state);
         }
 
+        refreshDrawableState();
+
         return drawableState;
     }
 

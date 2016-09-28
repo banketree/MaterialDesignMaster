@@ -22,7 +22,7 @@ import com.sk.opencv.OpenCVHelper;
 public class Tab2Fragment extends Fragment {
 
     private ImageView mGrayImage;
-    private final static String []tags = {"abc", "1234", "Good", "Congraulatiron", "Chinese", "Movie", "Chinese GongFu"
+    private final static String []tags = {"I am custom state", "abc", "1234", "Good", "Congraulatiron", "Chinese", "Movie", "Chinese GongFu"
                         ,"English", "KFC", "aaaaaaaaaaaaaaaaaaa", "55", "99999999999999999999999"};
 
     public Tab2Fragment() {
@@ -90,7 +90,6 @@ public class Tab2Fragment extends Fragment {
 
                 }
             });
-            //tv.setPadding(15, 10, 15, 10);
 
             flowLayout.addView(tv);
         }
